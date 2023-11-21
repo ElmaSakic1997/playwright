@@ -3,6 +3,14 @@ export class CustomerOrders {
         this.page = page
 
         this.productsInfo = [
+          { group: "Bar Table", name: "Leina bar table", quntity:10, options: [ { group: "", name: ""}, { group: "", name: ""}] },
+          { group: "Accessory", name: "Tica - 1E3" },
+          { group: "Bar Chair", name: "Leina bar chair - 095" },
+          { group: "Bench", name: "Ava bench - veneer seat - 1C9" },
+          { group: "Bed", name: "Ena bed 160 x 200 - 0B2" },
+        ]
+
+        this.productsInfo = [
           { group: "Bar Table", name: "Leina bar table" },
           { group: "Accessory", name: "Tica - 1E3" },
           { group: "Bar Chair", name: "Leina bar chair - 095" },

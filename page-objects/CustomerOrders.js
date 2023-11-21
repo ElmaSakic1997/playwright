@@ -2,6 +2,14 @@ export class CustomerOrders {
     constructor(page) {
         this.page = page
 
+        this.productsInfo = [
+          { group: "Bar Table", name: "Leina bar table" },
+          { group: "Accessory", name: "Tica - 1E3" },
+          { group: "Bar Chair", name: "Leina bar chair - 095" },
+          { group: "Bench", name: "Ava bench - veneer seat - 1C9" },
+          { group: "Bed", name: "Ena bed 160 x 200 - 0B2" },
+        ]
+
         this.products = [
             {
                 name: "Bar Table",
@@ -70,6 +78,23 @@ export class CustomerOrders {
     //         await product.actionLocator.click()
     //     }
     // }
+
+    selectItemV2 = async () => {
+      this.productsInfo.forEach(async (product) => {
+        await this.page.click(`.select2-results__group:text(${product.name})`)
+        await this.page.click('.select2-results__option:has-text("Leina bar table 70 x 70 - 097")')
+        await this.page.click('text=Select Option')
+        await this.page.click('//strong[contains(@class, "select2-results__group") and contains(text(), "Oiled oak")]')
+        await this.page.click('.select2-results__option:text("Oiled oak / White 1015")')
+        await this.page.click('.select2-selection__placeholder')
+        await this.page.click('css=.select2-results__option:has-text("Powder coated steel")')
+        await this.page.click('.select2-results__option:text("Powder coated steel / Black matte 9005")')
+        const quantity = Math.floor(Math.random() * (100 - 5 + 1) + 5)
+        await this.page.fill('input[type="number"].js-quantity', quantity.toString())
+        await this.page.click('text="Add item"')
+        await this.addItemButton.click()
+      });
+    }
 
     selectItem = async () => {
         for (let i = 0; i < this.products.length; i++) {

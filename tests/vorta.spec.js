@@ -19,6 +19,7 @@ test.only("Vorta test", async ({ page }) => {
     const customerOrder = new CustomerOrders(page)
     await customerOrder.generateOrderNumber()
     await customerOrder.fillCommission()
+    await customerOrder.addItem()
     await customerOrder.selectItemV2()
     // await customerOrder.addItem()
     // await customerOrder.selectItem()
@@ -27,10 +28,10 @@ test.only("Vorta test", async ({ page }) => {
     // await customerOrder.selectProductFromDropdown("Bar Table")
     // await customerOrder.performActionOnProduct("Bar Table")
 
-    const delivery = new Delivery(page)
-    await delivery.deliveryDetails()
+    // const delivery = new Delivery(page)
+    // await delivery.deliveryDetails()
 
-    await page.locator('.ts-save-button').click()
+    // await page.locator('.ts-save-button').click()
     await page.pause()
 
     console.log("End of the test")

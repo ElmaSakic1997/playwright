@@ -3,11 +3,11 @@ export class CustomerOrders {
         this.page = page
 
         this.productsInfo = [
-          { group: "Bar Table", name: "Leina bar table", quntity:10, options: [ { group: "", name: ""}, { group: "", name: ""}] },
-          { group: "Accessory", name: "Tica - 1E3" },
-          { group: "Bar Chair", name: "Leina bar chair - 095" },
-          { group: "Bench", name: "Ava bench - veneer seat - 1C9" },
-          { group: "Bed", name: "Ena bed 160 x 200 - 0B2" },
+          { group: "Bar Table", name: "Leina bar table", quantity:10, options: [ { group: "Oiled oak", name: "Oiled oak / White 1015"}, { group: "Powder coated steel", name: "Powder coated steel / Black matte 9005"}] },
+          { group: "Accessory", name: "Tica - 1E3", quantity: 10, options: [ { group: "American walnut", name: "American walnut / Natural oil 1505"}] },
+          { group: "Bar Chair", name: "Leina bar chair - 095", quantity: 10, options: [ { group: "Oiled oak", name: "Oiled oak / White 1015"}, {group: "Powder coated steel", name: "Powder coated steel / Black matte 9005"}] },
+          { group: "Bench", name: "Ava bench - veneer seat - 1C9", quantity: 10, options: [ { group: "Oiled oak", name: "Oiled oak / White 1015"}, {group: "", name: ""}] }, 
+          { group: "Bed", name: "Ena bed 160 x 200 - 0B2", quantity: 10, options: [ { group: "Oiled oak", name: "Oiled oak / White 1015"}] },
         ]
 
         this.productsInfo = [
@@ -90,7 +90,7 @@ export class CustomerOrders {
     selectItemV2 = async () => {
       this.productsInfo.forEach(async (product) => {
         await this.page.click(`.select2-results__group:text(${product.name})`)
-        await this.page.click('.select2-results__option:has-text("Leina bar table 70 x 70 - 097")')
+        await this.page.click(`.select2-results__option:has-text(${product.name})`)
         await this.page.click('text=Select Option')
         await this.page.click('//strong[contains(@class, "select2-results__group") and contains(text(), "Oiled oak")]')
         await this.page.click('.select2-results__option:text("Oiled oak / White 1015")')

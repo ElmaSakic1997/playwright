@@ -84,26 +84,26 @@ export class CustomerOrders {
     //     }
     // }
 
-    selectItemV2 = async () => {
-      this.productsInfo.forEach(async (product) => {
-        console.log(product)
-        await this.page.click(`.select2-results__group:text("${product.group}")`)
-        // await this.page.click(`.select2-results__option:has-text("${product.name}")`)
-        await this.page.click(`li.select2-results__option[role="treeitem"]:has-text("${product.name}")`)
-        await this.page.click('text=Select Option')
-        console.log("OPTIONS")
-        console.log(product.options)
+    // selectItemV2 = async () => {
+    //   this.productsInfo.forEach(async (product) => {
+    //     console.log(product)
+    //     await this.page.click(`.select2-results__group:text("${product.group}")`)
+    //     // await this.page.click(`.select2-results__option:has-text("${product.name}")`)
+    //     await this.page.click(`li.select2-results__option[role="treeitem"]:has-text("${product.name}")`)
+    //     await this.page.click('text=Select Option')
+    //     console.log("OPTIONS")
+    //     console.log(product.options)
 
-        product.options.forEach(async (option) => {
-          await this.page.click('.select2-selection__rendered:has-text("Select Option")')
-          await this.page.click(`css=.select2-results__option:has-text("${option.group}")`)
-          await this.page.click(`.select2-results__option:text("${option.name}")`)
-        })
-        await this.page.fill('input[type="number"].js-quantity', product.quantity.toString())
-        await this.page.click('text="Add item"')
-        await this.addItemButton.click()
-      });
-    }
+    //     product.options.forEach(async (option) => {
+    //       await this.page.click('.select2-selection__rendered:has-text("Select Option")')
+    //       await this.page.click(`css=.select2-results__option:has-text("${option.group}")`)
+    //       await this.page.click(`.select2-results__option:text("${option.name}")`)
+    //     })
+    //     await this.page.fill('input[type="number"].js-quantity', product.quantity.toString())
+    //     await this.page.click('text="Add item"')
+    //     await this.addItemButton.click()
+    //   });
+    // }
 
     selectItem = async () => {
         for (let i = 0; i < this.products.length; i++) {
